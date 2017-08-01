@@ -12,6 +12,10 @@ let recipeSchema = mongoose.Schema({
 	description: {
 		type: String
 	},
+	ingredients: {
+		type: Array,
+		required: true
+	},
 	//step 1: gather ingredients, step 2: mix ingredients, etc
 	instructions: {
 		type:String,
@@ -25,8 +29,10 @@ let recipeSchema = mongoose.Schema({
 	},
 	//breakfast, drink, entree, dinner, snack, experimental, etc
 	recipeType: {
-		type:String
+		type:String,
 		required: true
 	}
 
 });
+
+let Recipe = module.exports = mongoose.model('Recipe', recipeSchema);

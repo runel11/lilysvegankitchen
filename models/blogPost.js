@@ -8,7 +8,7 @@ let blogPostSchema = mongoose.Schema({
 	},
 	description: {
 		type: String
-	}
+	},
 	body: {
 		type: String,
 		required: true
@@ -24,3 +24,5 @@ let blogPostSchema = mongoose.Schema({
 	}
 
 });
+
+let blogPost = module.exports = mongoose.model('BlogPost', blogPostSchema);

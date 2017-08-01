@@ -20,6 +20,10 @@ db.on('error', (err) => {
 //initialize application
 const app = express();
 
+//bring in models
+let Recipe = require('./models/recipe');
+let BlogPost = require('./models/blogPost');
+
 //load view engine
 //for local testing, __dirname is /lilysvegankitchen
 //but when hosted by webserver it will just be the root
@@ -47,7 +51,15 @@ app.get('/', (req, res) => {
 
 //recipes route
 app.get('/recipes', (req, res) => {
-	res.render('recipes');
+	Recipe.find({}, (err, recipes) => {
+		if(err) {
+			console.log(err);
+		} else {
+			res.render('recipes', {
+				recipes: recipes
+			});
+		}
+	});
 });
 
 //blog route
