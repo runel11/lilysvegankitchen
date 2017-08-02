@@ -1,0 +1,9 @@
+extends layout
+
+block content
+	h1= post.title
+	p= post.postType
+	h3= post.description
+	each imgPath in post.imgPaths
+		img(src='public/media/'+imgPath)
+	p= post.body

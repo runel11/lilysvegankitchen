@@ -1,7 +1,7 @@
 let mongoose = require('mongoose');
 
 //blogPost schema
-let blogPostSchema = mongoose.Schema({
+let postSchema = mongoose.Schema({
 	title: {
 		type: String,
 		required: true
@@ -13,10 +13,10 @@ let blogPostSchema = mongoose.Schema({
 		type: String,
 		required: true
 	},
-	imgPaths: {
-		type: Array,
+	imgPaths: [{
+		type: String,
 		required: true
-	},
+	}],
 	//recipe, thought, opinion, advice, exercise, quote, etc
 	postType: {
 		type: String,
@@ -25,4 +25,4 @@ let blogPostSchema = mongoose.Schema({
 
 });
 
-let blogPost = module.exports = mongoose.model('BlogPost', blogPostSchema);
+let Post = module.exports = mongoose.model('Post', postSchema);

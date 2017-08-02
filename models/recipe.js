@@ -12,24 +12,24 @@ let recipeSchema = mongoose.Schema({
 	description: {
 		type: String
 	},
-	ingredients: {
-		type: Array,
+	ingredients: [{
+		type: String,
 		required: true
-	},
+	}],
 	//step 1: gather ingredients, step 2: mix ingredients, etc
-	instructions: {
-		type:String,
+	instructions: [{
+		type: String,
 		required: true
-	},
+	}],
 	//need to figure out how to store the images
 	//either in a database or just on the web server??
-	imgPaths: {
-		type:Array,
+	imgPaths: [{
+		type: String,
 		required: true
-	},
+	}],
 	//breakfast, drink, entree, dinner, snack, experimental, etc
 	recipeType: {
-		type:String,
+		type: String,
 		required: true
 	}
 

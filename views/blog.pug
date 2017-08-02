@@ -2,4 +2,8 @@ extends layout
 
 block content
 	h1 Blog
-	p This is the blog
+	ul.list-group
+		unless posts.length == 0	
+			each post, i in posts
+				li.list-group-item
+					a(href='/blog/'+post._id)= post.title

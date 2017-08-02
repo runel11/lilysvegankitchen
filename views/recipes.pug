@@ -3,6 +3,7 @@ extends layout
 block content
 	h1 Recipes
 	ul.list-group
-		each recipe, i in recipes
-			li.list-group-item
-				a(href='/recipe/'+article._id)= article.title
+		unless recipes.length == 0
+			each recipe, i in recipes
+				li.list-group-item
+					a(href='/recipe/'+recipe._id)= recipe.name
